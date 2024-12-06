@@ -13,10 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Dotnet Info Before
-        run: dotnet --info
+      # - name: Dotnet Info
+      #   run: dotnet --info
       - name: Build
-        run: dotnet build
+        run: dotnet restore
+      # - name: Build
+      #   run: dotnet build
+      # - name: Component detection 
+      #   if: runner.os != 'Windows'
+      #   uses: jhutchings1/component-detection-action@v0.0.1
       - name: Component detection 
-        if: runner.os != 'Windows'
-        uses: jhutchings1/component-detection-action@v0.0.1
+        uses: advanced-security/component-detection-dependency-submission-action@v0.0.3
+
